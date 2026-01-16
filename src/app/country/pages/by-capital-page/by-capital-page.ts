@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './by-capital-page.html',
 })
-export class ByCapitalPage {}
+export class ByCapitalPage {
+  onSearch(value: string) {
+    console.log(value);
+  }
+}
