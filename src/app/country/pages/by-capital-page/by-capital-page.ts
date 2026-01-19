@@ -24,6 +24,7 @@ export class ByCapitalPage {
     this.iserror.set(null);
 
     this.countryService.serachByCapital(query).subscribe((countries) => {
+      console.log(countries);
       this.countries.set(countries);
       this.isLoading.set(false);
     });
