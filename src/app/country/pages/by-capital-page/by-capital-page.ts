@@ -13,7 +13,7 @@ export class ByCapitalPage {
   countryService = inject(CountryService);
 
   isLoading = signal(false);
-  iserror = signal<string | null>(null);
+  isError = signal<string | null>(null);
   countries = signal<Country[]>([]);
 
   onSearch(query: string) {
@@ -22,12 +22,18 @@ export class ByCapitalPage {
     if (this.isLoading()) return;
 
     this.isLoading.set(true);
-    this.iserror.set(null);
+    this.isError.set(null);
 
-    this.countryService.serachByCapital(query).subscribe((restCountries) => {
-      console.log(restCountries);
-      this.countries.set(restCountries);
-      this.isLoading.set(false);
+    this.countryService.serachByCapital(query).subscribe({
+      next: (countries) => {
+        this.isLoading.set(false);
+        this.countries.set(countries);
+      },
+      error: (err) => {
+        this.isLoading.set(false);
+        this.countries.set([]);
+        this.isError.set(err);
+      },
     });
   }
 }
