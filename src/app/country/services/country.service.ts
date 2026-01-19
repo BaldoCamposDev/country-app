@@ -23,4 +23,17 @@ export class CountryService {
       }),
     );
   }
+
+  searchByCountry(query: string) {
+    query = query.trim().toLowerCase();
+
+    return this.http.get<RESTCountry[]>(`${API_URL}/name/${query}`).pipe(
+      map((restCountries) => CountryMapper.RestCountriesToCountries(restCountries)),
+      catchError((err) => {
+        console.log(err);
+
+        return throwError(() => new Error(`No se pudo obtener paises con ese query ${query}`));
+      }),
+    );
+  }
 }
