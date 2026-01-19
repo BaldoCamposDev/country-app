@@ -6,7 +6,7 @@ export class CountryMapper {
       cca2: restCountry.cca2,
       flag: restCountry.flag,
       flagSvg: restCountry.flags.svg,
-      name: restCountry.name.official,
+      name: restCountry.translations.spa.common,
       capital: restCountry.capital[0],
       population: restCountry.population,
     };
