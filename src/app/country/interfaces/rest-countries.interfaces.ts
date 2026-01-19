@@ -1,4 +1,4 @@
-interface RESTCountryResponse {
+interface RESTCountry {
   name: Name;
   tld: string[];
   cca2: string;

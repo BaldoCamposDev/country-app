@@ -13,6 +13,6 @@ export class CountryService {
   serachByCapital(query: string) {
     query = query.trim().toLowerCase();
 
-    return this.http.get(`${API_URL}/capital/${query}`);
+    return this.http.get<RESTCountry[]>(`${API_URL}/capital/${query}`);
   }
 }
