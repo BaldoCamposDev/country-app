@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CountrySearchInput } from '../../components/country-search-input/country-search-input';
 import { CountryList } from '../../components/country-list/country-list';
 import { CountryService } from '../../services/country.service';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'by-capital-page',
@@ -13,7 +14,7 @@ export class ByCapitalPage {
 
   isLoading = signal(false);
   iserror = signal<string | null>(null);
-  countries = signal<RESTCountry[]>([]);
+  countries = signal<Country[]>([]);
 
   onSearch(query: string) {
     if (!query || query == '') return;
@@ -23,9 +24,9 @@ export class ByCapitalPage {
     this.isLoading.set(true);
     this.iserror.set(null);
 
-    this.countryService.serachByCapital(query).subscribe((countries) => {
-      console.log(countries);
-      this.countries.set(countries);
+    this.countryService.serachByCapital(query).subscribe((restCountries) => {
+      console.log(restCountries);
+      this.countries.set(restCountries);
       this.isLoading.set(false);
     });
   }

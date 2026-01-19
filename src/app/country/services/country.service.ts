@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { CountryMapper } from '../mappers/country.mapper';
 
 const API_URL = 'https://restcountries.com/v3.1';
 
@@ -13,6 +14,8 @@ export class CountryService {
   serachByCapital(query: string) {
     query = query.trim().toLowerCase();
 
-    return this.http.get<RESTCountry[]>(`${API_URL}/capital/${query}`);
+    return this.http
+      .get<RESTCountry[]>(`${API_URL}/capital/${query}`)
+      .pipe(map((restCountries) => CountryMapper.RestCountriesToCountries(restCountries)));
   }
 }
