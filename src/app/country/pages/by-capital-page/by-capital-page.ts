@@ -19,7 +19,7 @@ export class ByCapitalPage {
     loader: async ({ params }) => {
       if (params.query === '') return [];
 
-      return await firstValueFrom(this.countryService.serachByCapital(params.query));
+      return await firstValueFrom(this.countryService.searchByCapital(params.query));
     },
   });
 

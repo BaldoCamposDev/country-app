@@ -11,7 +11,7 @@ const API_URL = 'https://restcountries.com/v3.1';
 export class CountryService {
   private http = inject(HttpClient);
 
-  serachByCapital(query: string) {
+  searchByCapital(query: string) {
     query = query.trim().toLowerCase();
 
     return this.http.get<RESTCountry[]>(`${API_URL}/capital/${query}`).pipe(
