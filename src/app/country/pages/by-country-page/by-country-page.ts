@@ -19,7 +19,7 @@ export class ByCountryPage {
     stream: ({ params }) => {
       if (params.query === '') return of([]);
 
-      return this.countryService.searchByCapital(params.query);
+      return this.countryService.searchByCountry(params.query);
     },
   });
 }
