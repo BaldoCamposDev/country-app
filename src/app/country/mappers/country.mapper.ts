@@ -5,7 +5,7 @@ export class CountryMapper {
     return {
       cca2: restCountry.cca2,
       flag: restCountry.flag,
-      FlagSvg: restCountry.flags.svg,
+      flagSvg: restCountry.flags.svg,
       name: restCountry.name.official,
       capital: restCountry.capital[0],
       population: restCountry.population,
