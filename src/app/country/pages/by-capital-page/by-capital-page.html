@@ -4,5 +4,5 @@
   [countries]="countryResource.value() ?? []"
   [isLoading]="countryResource.isLoading()"
   [errorMessage]="countryResource.error()"
-  [isEmpty]="countryResource.value.length === 0"
+  [isEmpty]="(countryResource.value() ?? []).length === 0"
 />
