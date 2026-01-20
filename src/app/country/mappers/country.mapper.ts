@@ -9,6 +9,8 @@ export class CountryMapper {
       name: restCountry.translations.spa.common,
       capital: restCountry.capital[0],
       population: restCountry.population,
+      region: restCountry.region,
+      subregion: restCountry.subregion,
     };
   }
 
