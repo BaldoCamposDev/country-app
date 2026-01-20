@@ -1,8 +1,8 @@
 <country-search-input searchPlaceholder="Buscar por país" (value)="query.set($event)" />
 
 <country-list
-  [countries]="countryResource.value() ?? []"
+  [countries]="countryResource.hasValue() ? countryResource.value() : []"
   [isLoading]="countryResource.isLoading()"
   [errorMessage]="countryResource.error()"
-  [isEmpty]="countryResource.value.length === 0"
+  [isEmpty]="countryResource.hasValue() && countryResource.value().length === 0"
 />
