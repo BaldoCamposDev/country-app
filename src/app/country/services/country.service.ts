@@ -17,8 +17,6 @@ export class CountryService {
     return this.http.get<RESTCountry[]>(`${API_URL}/capital/${query}`).pipe(
       map((restCountries) => CountryMapper.RestCountriesToCountries(restCountries)),
       catchError((error) => {
-        console.log('Error fetching ', error);
-
         return throwError(() => new Error(`No se pudo obtener paises con ese query ${query}`));
       }),
     );
@@ -43,8 +41,6 @@ export class CountryService {
       map((restCountries) => CountryMapper.RestCountriesToCountries(restCountries)),
       map((countries) => countries[0]),
       catchError((err) => {
-        console.log(err);
-
         return throwError(() => new Error(`No se pudo obtener paises con ese código ${code}`));
       }),
     );
