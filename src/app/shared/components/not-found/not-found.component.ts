@@ -1,10 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'not-found',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './not-found.component.html',
 })
 export class NotFoundComponent {
